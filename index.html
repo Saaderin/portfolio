@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Md. Irfanur Rahman Saad — Blockchain & Crypto Research, AI & Data, Academic Research." />
+  <title>Md. Irfanur Rahman Saad | Research & Technology</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+    :root{
+      --bg:#050b14;
+      --bg2:#081321;
+      --panel:#0d1928;
+      --panel2:#111f31;
+      --line:#203247;
+      --text:#f4f7fb;
+      --muted:#9aaabd;
+      --silver:#d9e1ea;
+      --blue:#69c7ff;
+      --blue2:#2ea8ff;
+      --blue3:#a8e1ff;
+      --max:1180px;
+      --shadow:0 24px 70px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    html{background:var(--bg)}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 5%, rgba(46,168,255,.10), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(105,199,255,.08), transparent 24%),
+        linear-gradient(180deg,#050b14 0%,#07111e 48%,#050b14 100%);
+      font-family:Inter,Arial,sans-serif;
+      line-height:1.7;
+    }
+    body:before{
+      content:"";
+      position:fixed;inset:0;pointer-events:none;z-index:-1;
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+      background-size:55px 55px;
+      mask-image:linear-gradient(to bottom,black,transparent 90%);
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .section{padding:110px 0;position:relative}
+    .eyebrow{
+      color:var(--blue);
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:.76rem;
+      font-weight:700;
+      margin-bottom:16px;
+    }
+    h1,h2,h3,h4{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.12;margin:0}
+    h2{font-size:clamp(2rem,4vw,3.3rem)}
+    .lead{color:var(--muted);font-size:1.05rem;max-width:760px}
+
+    /* NAV */
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:rgba(5,11,20,.78);
+      border-bottom:1px solid rgba(217,225,234,.08);
+      backdrop-filter:blur(18px);
+    }
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;white-space:nowrap}
+    .brand-mark{
+      width:39px;height:39px;border:1px solid rgba(105,199,255,.55);
+      border-radius:11px;display:grid;place-items:center;color:var(--blue);
+      background:linear-gradient(145deg,#0f2236,#07111e);
+      font-family:"Space Grotesk",sans-serif;
+    }
+    .brand-name{font-size:.92rem;letter-spacing:.02em}
+    .links{display:flex;gap:22px;align-items:center}
+    .links a{
+      color:#9eacbd;font-size:.78rem;font-weight:600;letter-spacing:.06em;
+      text-transform:uppercase;transition:.25s;
+    }
+    .links a:hover,.links a.active{color:var(--blue)}
+    .menu{display:none;background:none;border:1px solid var(--line);color:white;border-radius:10px;padding:8px 11px;font-size:20px}
+
+    /* HERO */
+    .hero{min-height:100vh;padding-top:150px;display:grid;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:65px;align-items:center}
+    .hero h1{font-size:clamp(3.3rem,7vw,6.4rem);letter-spacing:-.055em}
+    .hero h1 span{display:block;color:var(--blue)}
+    .role{font-size:1.18rem;font-weight:700;color:var(--silver);margin:26px 0 18px}
+    .hero-copy{font-size:1.03rem;color:var(--muted);max-width:700px}
+    .buttons{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}
+    .btn{
+      padding:12px 19px;border-radius:9px;border:1px solid var(--line);
+      background:#0c1826;color:var(--silver);font-weight:700;font-size:.9rem;
+      transition:.25s;display:inline-flex;align-items:center;gap:8px;
+    }
+    .btn.primary{background:var(--blue);border-color:var(--blue);color:#03101a}
+    .btn:hover{transform:translateY(-2px);border-color:var(--blue)}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
+    .tag{padding:7px 11px;border:1px solid var(--line);border-radius:999px;color:#aebdcd;background:rgba(13,25,40,.65);font-size:.78rem}
+
+    .hero-card{
+      position:relative;min-height:510px;border:1px solid var(--line);border-radius:24px;
+      background:linear-gradient(145deg,rgba(17,31,49,.95),rgba(6,15,26,.92));
+      box-shadow:var(--shadow);overflow:hidden;padding:28px;
+    }
+    .hero-card:before,.hero-card:after{
+      content:"";position:absolute;border:1px solid rgba(105,199,255,.22);border-radius:50%;
+      width:330px;height:330px;right:-120px;top:65px;
+    }
+    .hero-card:after{width:230px;height:230px;right:-70px;top:115px;border-color:rgba(105,199,255,.30)}
+    .photo{
+      width:180px;height:180px;border-radius:50%;margin:22px auto 34px;
+      border:1px solid rgba(105,199,255,.55);
+      background:
+        radial-gradient(circle at 50% 35%,rgba(105,199,255,.16),transparent 42%),
+        #081321;
+      display:grid;place-items:center;text-align:center;color:#7890a7;
+      font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+      position:relative;z-index:2;
+    }
+    .orbit{
+      position:absolute;right:45px;top:205px;width:12px;height:12px;border-radius:50%;
+      background:var(--blue);box-shadow:0 0 25px var(--blue);
+    }
+    .focus-list{position:relative;z-index:2;display:grid;gap:10px}
+    .focus-item{padding:15px 0;border-bottom:1px solid var(--line)}
+    .focus-item small{display:block;color:var(--blue);font-weight:700;margin-bottom:4px}
+    .focus-item strong{font-family:"Space Grotesk";font-size:1.05rem}
+
+    /* SECTION HEADER */
+    .section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:48px}
+    .section-head .right{max-width:590px}
+
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .stat{padding:27px;border:1px solid var(--line);border-radius:15px;background:rgba(13,25,40,.72)}
+    .stat strong{font-family:"Space Grotesk";font-size:2rem;color:var(--blue);display:block}
+    .stat span{color:var(--muted);font-size:.82rem}
+
+    /* ABOUT */
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px}
+    .panel{border:1px solid var(--line);border-radius:18px;background:rgba(13,25,40,.72);padding:30px}
+    .panel h3{font-size:1.3rem;margin-bottom:15px}
+    .quote{border-left:3px solid var(--blue);padding:5px 0 5px 20px;color:var(--silver);font-size:1.06rem}
+    .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:25px}
+    .mini{padding:17px;border:1px solid var(--line);border-radius:12px;background:#0a1523}
+    .mini b{display:block;color:var(--blue);font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+    .mini span{color:#bdc9d5;font-size:.9rem}
+
+    /* EXPERIENCE */
+    .timeline{position:relative;margin-left:12px}
+    .timeline:before{content:"";position:absolute;left:7px;top:0;bottom:0;width:1px;background:var(--line)}
+    .time-item{position:relative;padding:0 0 42px 40px}
+    .time-dot{position:absolute;left:0;top:6px;width:15px;height:15px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 5px #07111e;border:1px solid var(--blue)}
+    .time-item .date{color:var(--blue);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .time-item h3{font-size:1.35rem;margin:7px 0}
+    .time-item p{color:var(--muted);max-width:800px}
+
+    /* CARDS */
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .card{
+      padding:28px;border:1px solid var(--line);border-radius:18px;
+      background:linear-gradient(145deg,rgba(17,31,49,.88),rgba(9,18,30,.88));
+      transition:.25s;position:relative;overflow:hidden;
+    }
+    .card:hover{transform:translateY(-4px);border-color:rgba(105,199,255,.45)}
+    .card-number{color:var(--blue);font-size:.74rem;letter-spacing:.14em;font-weight:800}
+    .card h3{font-size:1.35rem;margin:10px 0}
+    .card p{color:var(--muted);font-size:.92rem}
+    .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}
+    .chip{font-size:.72rem;color:#b9c8d7;padding:5px 8px;border:1px solid var(--line);border-radius:999px}
+
+    /* RESEARCH FEATURE */
+    .research-feature{
+      border:1px solid rgba(105,199,255,.28);border-radius:22px;padding:38px;
+      background:
+        radial-gradient(circle at 100% 0%,rgba(46,168,255,.12),transparent 35%),
+        linear-gradient(145deg,#0d1b2b,#081321);
+    }
+    .research-feature h3{font-size:clamp(1.7rem,3vw,2.6rem);max-width:900px;margin-bottom:12px}
+    .research-feature .subtitle{color:var(--blue3);font-weight:600}
+    .research-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:30px}
+    .research-cols h4{font-size:1rem;margin-bottom:12px;color:var(--silver)}
+    .research-cols ul{padding-left:18px;color:var(--muted);margin:0}
+    .research-cols li{margin:7px 0}
+
+    /* SKILLS */
+    .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+    .skill{padding:24px;border:1px solid var(--line);border-radius:16px;background:rgba(13,25,40,.72)}
+    .skill h3{font-size:1.05rem;margin-bottom:15px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:7px}
+    .skill-list span{font-size:.76rem;color:#b8c7d6;border:1px solid var(--line);padding:6px 8px;border-radius:7px}
+
+    /* EDUCATION */
+    .edu{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .edu-card{padding:27px;border:1px solid var(--line);border-radius:17px;background:rgba(13,25,40,.72)}
+    .edu-card .label{color:var(--blue);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+    .edu-card h3{margin:9px 0 5px;font-size:1.25rem}
+    .edu-card p{color:var(--muted);margin:0}
+
+    /* VISION */
+    .vision{border:1px solid var(--line);border-radius:22px;padding:45px;background:linear-gradient(135deg,#0d1a29,#08111d)}
+    .vision blockquote{margin:0;font-family:"Space Grotesk";font-size:clamp(1.5rem,3vw,2.45rem);line-height:1.35;color:var(--silver)}
+    .vision blockquote span{color:var(--blue)}
+    .vision-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}
+    .vision-box{padding:17px;border:1px solid var(--line);border-radius:12px;background:rgba(5,11,20,.35)}
+    .vision-box b{display:block;color:var(--blue);font-size:.8rem;margin-bottom:6px}
+    .vision-box span{font-size:.82rem;color:var(--muted)}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .contact-card{padding:30px;border:1px solid var(--line);border-radius:18px;background:rgba(13,25,40,.72)}
+    .contact-row{display:flex;gap:13px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+    .contact-row:last-child{border-bottom:0}
+    .icon{width:36px;height:36px;border-radius:9px;border:1px solid var(--line);display:grid;place-items:center;color:var(--blue)}
+    .contact-row small{display:block;color:#788b9e}
+    .contact-row strong{font-size:.9rem}
+
+    footer{border-top:1px solid var(--line);padding:30px 0;color:#718397;font-size:.78rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:.7s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    @media(max-width:900px){
+      .links{display:none;position:absolute;top:76px;left:20px;right:20px;padding:15px;flex-direction:column;align-items:flex-start;background:#081321;border:1px solid var(--line);border-radius:13px}
+      .links.open{display:flex}
+      .menu{display:block}
+      .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .hero{padding-top:120px}
+      .hero-card{min-height:450px}
+      .stats{grid-template-columns:1fr 1fr}
+      .skill-grid{grid-template-columns:1fr 1fr}
+      .vision-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:620px){
+      .container{width:min(var(--max),calc(100% - 26px))}
+      .section{padding:78px 0}
+      .hero h1{font-size:3.15rem}
+      .stats,.cards,.skill-grid,.edu,.research-cols,.vision-grid{grid-template-columns:1fr}
+      .section-head{display:block}
+      .section-head .right{margin-top:15px}
+      .hero-card{padding:22px}
+      .photo{width:145px;height:145px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">
+        <span class="brand-mark">IRS</span>
+        <span class="brand-name">IRFANUR RAHMAN SAAD</span>
+      </a>
+
+      <button class="menu" aria-label="Open menu">☰</button>
+
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#blockchain">Blockchain</a>
+        <a href="#ai-data">AI & Data</a>
+        <a href="#projects">Projects</a>
+        <a href="#vision">Vision</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <main id="home" class="hero section">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">Research • Technology • Digital Assets</div>
+        <h1>Md. Irfanur<br><span>Rahman Saad</span></h1>
+
+        <div class="role">
+          Blockchain & Crypto Researcher&nbsp; | &nbsp;AI & Data&nbsp; | &nbsp;Academic Research
+        </div>
+
+        <p class="hero-copy">
+          Research-oriented technology professional with 7+ years of experience exploring
+          cryptocurrency and digital assets, combined with an academic research focus on
+          data-driven environmental analytics and emerging intelligent technologies.
+        </p>
+
+        <div class="buttons">
+          <a class="btn primary" href="#research">Explore Research →</a>
+          <a class="btn" href="#projects">View Selected Work</a>
+          <a class="btn" href="#resume">View Resume</a>
+        </div>
+
+        <div class="hero-meta">
+          <span class="tag">Blockchain & Web3</span>
+          <span class="tag">Crypto & Digital Assets</span>
+          <span class="tag">AI & Data</span>
+          <span class="tag">Environmental Analytics</span>
+          <span class="tag">Academic Research</span>
+        </div>
+      </div>
+
+      <aside class="hero-card reveal">
+        <div class="orbit"></div>
+        <div class="photo">
+          YOUR<br>PHOTO<br>HERE
+        </div>
+
+        <div class="focus-list">
+          <div class="focus-item">
+            <small>01 / CORE FOCUS</small>
+            <strong>Blockchain & Web3 Research</strong>
+          </div>
+          <div class="focus-item">
+            <small>02 / CORE FOCUS</small>
+            <strong>Crypto & Digital Assets</strong>
+          </div>
+          <div class="focus-item">
+            <small>03 / CORE FOCUS</small>
+            <strong>AI-Assisted Data Analysis</strong>
+          </div>
+          <div class="focus-item">
+            <small>04 / CORE FOCUS</small>
+            <strong>Climate Risk & Environmental Analytics</strong>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- CREDIBILITY -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="stats">
+        <div class="stat reveal"><strong>7+</strong><span>Years exploring crypto & digital assets</span></div>
+        <div class="stat reveal"><strong>R&D</strong><span>Research-driven professional direction</span></div>
+        <div class="stat reveal"><strong>AI + Data</strong><span>Emerging analytical focus</span></div>
+        <div class="stat reveal"><strong>Thesis</strong><span>Climate risk & extreme-event research</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">01 / About</div>
+          <h2>A research-first profile.</h2>
+        </div>
+        <div class="right">
+          <p class="lead">
+            My work sits at the intersection of digital assets, emerging technology,
+            data analysis and academic research.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="panel reveal">
+          <h3>Professional Direction</h3>
+          <p class="quote">
+            I aim to build a globally relevant career around research, technology,
+            digital assets and data-driven problem solving.
+          </p>
+          <p class="lead">
+            Rather than presenting myself as a conventional software developer, this portfolio
+            positions my strengths around research, analytical thinking, technology exploration,
+            structured writing and evidence-based insight.
+          </p>
+        </div>
+
+        <div class="panel reveal">
+          <h3>Areas I Work Across</h3>
+          <div class="mini-grid">
+            <div class="mini"><b>01</b><span>Blockchain & Web3</span></div>
+            <div class="mini"><b>02</b><span>Crypto & Digital Assets</span></div>
+            <div class="mini"><b>03</b><span>AI & Data Analysis</span></div>
+            <div class="mini"><b>04</b><span>Environmental Analytics</span></div>
+            <div class="mini"><b>05</b><span>Academic Research</span></div>
+            <div class="mini"><b>06</b><span>Research & Technical Writing</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">02 / Experience</div>
+          <h2>Years of exploration, evolving into research.</h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="time-item reveal">
+          <span class="time-dot"></span>
+          <div class="date">7+ Years / Ongoing</div>
+          <h3>Cryptocurrency & Digital Asset Ecosystem</h3>
+          <p>
+            Long-term involvement in exploring the cryptocurrency and digital-asset ecosystem,
+            with an emphasis on market developments, projects, emerging technologies and
+            research-oriented understanding of the sector.
+          </p>
+        </div>
+
+        <div class="time-item reveal">
+          <span class="time-dot"></span>
+          <div class="date">Academic Research</div>
+          <h3>Data, Technology & Research</h3>
+          <p>
+            Developing an academic research profile around data-driven analysis, environmental
+            intelligence and technology-supported problem solving.
+          </p>
+        </div>
+
+        <div class="time-item reveal">
+          <span class="time-dot"></span>
+          <div class="date">Current Research Direction</div>
+          <h3>Climate Risk & Extreme Event Prediction</h3>
+          <p>
+            Building a thesis research direction that combines multiple environmental data
+            sources with analytical methods to study climate risk and extreme events.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">03 / Featured Research</div>
+          <h2>Academic research.</h2>
+        </div>
+      </div>
+
+      <div class="research-feature reveal">
+        <div class="eyebrow">Thesis Research</div>
+        <h3>Data-Driven Climate Risk and Extreme Event Prediction</h3>
+        <div class="subtitle">A Multi-Source Environmental Analytics Approach</div>
+
+        <div class="research-cols">
+          <div>
+            <h4>Research Focus</h4>
+            <ul>
+              <li>Climate risk assessment</li>
+              <li>Extreme event prediction</li>
+              <li>Multi-source environmental data</li>
+              <li>Data-driven environmental analytics</li>
+              <li>Predictive and analytical modelling</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Research Objective</h4>
+            <p class="lead">
+              To investigate how diverse environmental data sources can be integrated into
+              a structured analytical framework for understanding climate risk and improving
+              prediction of extreme environmental events.
+            </p>
+          </div>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Climate Risk</span>
+          <span class="chip">Extreme Events</span>
+          <span class="chip">Environmental Data</span>
+          <span class="chip">Predictive Analytics</span>
+          <span class="chip">Multi-Source Data</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCKCHAIN -->
+  <section id="blockchain" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">04 / Blockchain</div>
+          <h2>Blockchain & crypto research.</h2>
+        </div>
+        <div class="right">
+          <p class="lead">
+            A long-term area of interest focused on understanding digital assets,
+            blockchain ecosystems and the evolving Web3 landscape.
+          </p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-number">01</div>
+          <h3>Digital Asset Research</h3>
+          <p>
+            Researching cryptocurrency ecosystems, digital-asset narratives, market developments
+            and the technologies shaping decentralized finance.
+          </p>
+          <div class="chips"><span class="chip">Crypto</span><span class="chip">Digital Assets</span><span class="chip">Market Research</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-number">02</div>
+          <h3>Blockchain & Web3</h3>
+          <p>
+            Exploring decentralized technologies, blockchain applications, Web3 ecosystems
+            and emerging digital infrastructure.
+          </p>
+          <div class="chips"><span class="chip">Blockchain</span><span class="chip">Web3</span><span class="chip">DeFi</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-number">03</div>
+          <h3>Research & Analysis</h3>
+          <p>
+            Turning complex information into structured notes, comparisons, analytical
+            frameworks and research-oriented insights.
+          </p>
+          <div class="chips"><span class="chip">Analysis</span><span class="chip">Research</span><span class="chip">Reports</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-number">04</div>
+          <h3>Emerging Technology</h3>
+          <p>
+            Tracking the intersection of blockchain, AI, data and digital finance to understand
+            how emerging technologies create new research opportunities.
+          </p>
+          <div class="chips"><span class="chip">AI</span><span class="chip">Data</span><span class="chip">Innovation</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI DATA -->
+  <section id="ai-data" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">05 / AI & Data</div>
+          <h2>Building the analytical layer.</h2>
+        </div>
+        <div class="right">
+          <p class="lead">
+            AI and data are positioned here as research tools: helping structure information,
+            evaluate evidence, identify patterns and support data-driven decision making.
+          </p>
+        </div>
+      </div>
+
+      <div class="skill-grid">
+        <div class="skill reveal">
+          <h3>Data Analysis</h3>
+          <div class="skill-list">
+            <span>Data Interpretation</span><span>Data Cleaning</span><span>Exploratory Analysis</span><span>Visualization</span>
+          </div>
+        </div>
+
+        <div class="skill reveal">
+          <h3>AI-Assisted Research</h3>
+          <div class="skill-list">
+            <span>AI Research Workflows</span><span>Information Synthesis</span><span>Pattern Analysis</span><span>Structured Reasoning</span>
+          </div>
+        </div>
+
+        <div class="skill reveal">
+          <h3>Environmental Analytics</h3>
+          <div class="skill-list">
+            <span>Climate Data</span><span>Risk Analysis</span><span>Extreme Events</span><span>Predictive Research</span>
+          </div>
+        </div>
+
+        <div class="skill reveal">
+          <h3>Research Practice</h3>
+          <div class="skill-list">
+            <span>Literature Review</span><span>Research Design</span><span>Technical Writing</span><span>Evidence Synthesis</span>
+          </div>
+        </div>
+
+        <div class="skill reveal">
+          <h3>Digital Finance</h3>
+          <div class="skill-list">
+            <span>Digital Assets</span><span>Crypto Ecosystems</span><span>Market Research</span><span>Web3</span>
+          </div>
+        </div>
+
+        <div class="skill reveal">
+          <h3>Communication</h3>
+          <div class="skill-list">
+            <span>Research Writing</span><span>Presentation</span><span>Documentation</span><span>Analytical Reporting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">06 / Selected Work</div>
+          <h2>Proof of work.</h2>
+        </div>
+        <div class="right">
+          <p class="lead">
+            Replace these placeholders with your real papers, reports, dashboards, research
+            outputs, crypto analyses and other work as you collect them.
+          </p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card-number">PROJECT 01</div>
+          <h3>Climate Risk & Extreme Event Prediction</h3>
+          <p>Thesis research on integrating multiple environmental sources into a data-driven analytical framework.</p>
+          <div class="chips"><span class="chip">Thesis</span><span class="chip">Environmental Analytics</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-number">PROJECT 02</div>
+          <h3>Crypto / Digital Asset Research</h3>
+          <p>Add one of your strongest real crypto research or analytical works here with a short explanation and evidence link.</p>
+          <div class="chips"><span class="chip">Crypto</span><span class="chip">Research</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-number">PROJECT 03</div>
+          <h3>Academic / Technical Research</h3>
+          <p>Add your thesis paper, academic paper, conference work, literature review or technical report here.</p>
+          <div class="chips"><span class="chip">Academic</span><span class="chip">Research</span></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-number">PROJECT 04</div>
+          <h3>Data & AI Analysis</h3>
+          <p>Add a real dataset analysis, visualization, AI-assisted research workflow or analytical report here.</p>
+          <div class="chips"><span class="chip">AI</span><span class="chip">Data</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">07 / Education</div>
+          <h2>Academic foundation.</h2>
+        </div>
+      </div>
+
+      <div class="edu">
+        <div class="edu-card reveal">
+          <div class="label">University</div>
+          <h3>Daffodil International University</h3>
+          <p>Add your exact department, degree/program and graduation details here.</p>
+        </div>
+        <div class="edu-card reveal">
+          <div class="label">Academic Research</div>
+          <h3>Thesis Research</h3>
+          <p>Data-Driven Climate Risk and Extreme Event Prediction: A Multi-Source Environmental Analytics Approach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section id="vision" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">08 / Vision</div>
+          <h2>Where I am heading.</h2>
+        </div>
+      </div>
+
+      <div class="vision reveal">
+        <blockquote>
+          My goal is to build a globally recognized career at the intersection of
+          <span>Blockchain, Digital Assets, AI, Data and Research</span> — creating
+          meaningful work that connects technology with real-world problems.
+        </blockquote>
+
+        <div class="vision-grid">
+          <div class="vision-box"><b>01</b><span>International Research</span></div>
+          <div class="vision-box"><b>02</b><span>Blockchain & Digital Finance</span></div>
+          <div class="vision-box"><b>03</b><span>AI & Data Intelligence</span></div>
+          <div class="vision-box"><b>04</b><span>Environmental Analytics</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">09 / Resume</div>
+          <h2>Professional documents.</h2>
+        </div>
+        <div class="right">
+          <p class="lead">
+            Replace the placeholder below with your actual CV PDF link when it is ready.
+          </p>
+        </div>
+      </div>
+
+      <div class="panel reveal">
+        <h3>Md. Irfanur Rahman Saad — CV</h3>
+        <p class="lead">
+          Research • Blockchain & Crypto • AI & Data • Environmental Analytics
+        </p>
+
+        <!-- REPLACE # WITH YOUR GOOGLE DRIVE / GITHUB PDF LINK -->
+        <a class="btn primary" href="#" onclick="alert('Replace this # with your CV PDF link.'); return false;">
+          Download CV →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">10 / Contact</div>
+          <h2>Open to meaningful opportunities.</h2>
+        </div>
+        <div class="right">
+          <p class="lead">
+            Research collaboration, technology projects, analytical work and international opportunities.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <h3>Connect</h3>
+
+          <a class="contact-row" href="https://www.linkedin.com/in/md-irfanur-rahman-saad-67a95b263/" target="_blank" rel="noopener">
+            <span class="icon">in</span>
+            <span><small>LinkedIn</small><strong>Professional Profile</strong></span>
+          </a>
+
+          <a class="contact-row" href="https://www.facebook.com/share/1AxK6nCVU2/" target="_blank" rel="noopener">
+            <span class="icon">f</span>
+            <span><small>Facebook</small><strong>Social Profile</strong></span>
+          </a>
+
+          <a class="contact-row" href="https://www.youtube.com/@Md.IrfanurRahmanSaad" target="_blank" rel="noopener">
+            <span class="icon">▶</span>
+            <span><small>YouTube</small><strong>Channel</strong></span>
+          </a>
+        </div>
+
+        <div class="contact-card reveal">
+          <h3>Collaboration</h3>
+          <p class="lead">
+            Interested in research, data-driven technology, blockchain, digital assets,
+            environmental analytics or related international projects?
+          </p>
+          <a class="btn primary" href="mailto:YOUR-EMAIL@example.com">Email Me →</a>
+          <p style="color:#6f8296;font-size:.75rem;margin-top:18px">
+            Replace YOUR-EMAIL@example.com with your real email address.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Md. Irfanur Rahman Saad</span>
+      <span>Research • Technology • Digital Assets</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menu = document.querySelector('.menu');
+    const links = document.querySelector('.links');
+    menu.addEventListener('click', () => links.classList.toggle('open'));
+    document.querySelectorAll('.links a').forEach(a => {
+      a.addEventListener('click', () => links.classList.remove('open'));
+    });
+
+    // Reveal animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, {threshold:.12});
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Active navigation
+    const sections = document.querySelectorAll('main[id], section[id]');
+    const navLinks = document.querySelectorAll('.links a');
+
+    const activeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          navLinks.forEach(link => {
+            link.classList.toggle(
+              'active',
+              link.getAttribute('href') === '#' + entry.target.id
+            );
+          });
+        }
+      });
+    }, {rootMargin:'-35% 0px -55% 0px'});
+
+    sections.forEach(section => activeObserver.observe(section));
+  </script>
+</body>
+</html>
