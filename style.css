@@ -1,160 +1,464 @@
+/* =========================
+   RESET
+========================= */
+
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  background: #06111f;
-  color: #f4f7fb;
-  font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #06101f;
+    color: #f5f7fb;
+    line-height: 1.7;
+    overflow-x: hidden;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
 
 .container {
-  width: min(1180px, 92%);
-  margin: auto;
+    width: min(1200px, 92%);
+    margin: 0 auto;
 }
 
-/* HERO */
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    width: 100%;
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(6, 16, 31, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a3048;
+}
+
+nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+nav a {
+    color: #b9c9dc;
+    font-size: 15px;
+    margin-left: 20px;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #63c5ff;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
 .hero {
-  padding: 90px 0;
-  min-height: 100vh;
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 70px;
+    padding: 90px 0;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 60px;
-  align-items: center;
+.hero-content {
+    max-width: 720px;
 }
 
-/* PROFILE PHOTO FRAME */
+.hero-label {
+    color: #55bfff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 7vw, 105px);
+    line-height: 0.98;
+    letter-spacing: -4px;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+.hero h1 span {
+    color: #61c4ff;
+    display: block;
+}
+
+.hero h2 {
+    font-size: clamp(20px, 2vw, 28px);
+    line-height: 1.4;
+    margin-bottom: 25px;
+    color: #f4f6fa;
+}
+
+.hero p {
+    color: #9db4ce;
+    font-size: 18px;
+    max-width: 700px;
+}
+
+
+/* =========================
+   HERO PHOTO CARD
+========================= */
+
 .hero-card {
-  position: relative;
-  padding: 28px;
-  background: #0c1b2e;
-  border: 1px solid #29415d;
-  border-radius: 24px;
-  overflow: hidden;
+    position: relative;
+    padding: 30px;
+    background: linear-gradient(
+        145deg,
+        #0b1b2b,
+        #071321
+    );
+    border: 1px solid #24415e;
+    border-radius: 26px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
 }
+
+
+/* =========================
+   PHOTO FRAME
+========================= */
 
 .photo {
-  width: 100%;
-  height: 460px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 2px solid #7f8c99;
-  background: #101d2d;
-  position: relative;
+    width: 100%;
+    height: 560px;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 2px solid #6b8299;
+    background: #0b1b2b;
+    position: relative;
 }
+
+
+/* =========================
+   PROFILE IMAGE
+   AUTO ZOOM + FACE CENTER
+========================= */
 
 .photo img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center 25%;
+    width: 100%;
+    height: 100%;
+
+    /* Fill the frame */
+    object-fit: cover;
+
+    /*
+       Face center e rakhar jonno.
+       50% = horizontal center
+       65% = vertical position
+    */
+    object-position: 50% 65%;
+
+    /*
+       Auto zoom-in.
+       1.18 = moderate zoom
+    */
+    transform: scale(1.18);
+
+    transform-origin: 50% 65%;
+
+    transition:
+        transform 0.6s ease,
+        object-position 0.6s ease;
+
+    display: block;
 }
 
-/* NAME */
-h1 {
-  font-size: clamp(50px, 7vw, 90px);
-  line-height: 0.95;
-  margin: 20px 0;
+
+/* Slight extra zoom on hover */
+
+.photo:hover img {
+    transform: scale(1.23);
 }
 
-h1 span {
-  color: #72c7ff;
+
+/* =========================
+   PHOTO LABEL
+========================= */
+
+.photo-label {
+    margin-top: 24px;
+    color: #54c2ff;
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-weight: 700;
 }
 
-.eyebrow {
-  color: #72c7ff;
-  letter-spacing: 5px;
-  font-size: 14px;
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+section {
+    padding: 110px 0;
+    border-top: 1px solid #13263c;
 }
 
-.role {
-  font-size: 22px;
-  font-weight: bold;
-  line-height: 1.5;
-  color: #dce5ef;
+.section-label {
+    color: #53c2ff;
+    font-size: 14px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
-.hero-copy,
-.lead {
-  color: #9eb0c3;
-  line-height: 1.8;
+section h2 {
+    font-size: clamp(35px, 5vw, 60px);
+    line-height: 1.1;
+    margin-bottom: 30px;
 }
 
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 30px;
+section h3 {
+    font-size: 24px;
+    margin-top: 35px;
+    margin-bottom: 15px;
 }
+
+section p {
+    color: #a9bdd3;
+    font-size: 17px;
+    max-width: 900px;
+}
+
+
+/* =========================
+   LISTS
+========================= */
+
+ul {
+    list-style: none;
+    margin-top: 25px;
+}
+
+li {
+    color: #d9e3ee;
+    margin: 8px 0;
+    font-size: 17px;
+}
+
+
+/* =========================
+   PROJECT CARDS
+========================= */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 45px;
+}
+
+.project-card {
+    padding: 30px;
+    background: #0b1b2b;
+    border: 1px solid #203b56;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: #4ebfff;
+}
+
+.project-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
 
 .btn {
-  display: inline-block;
-  padding: 13px 22px;
-  border: 1px solid #52677d;
-  border-radius: 8px;
-  color: white;
-  text-decoration: none;
+    display: inline-block;
+    margin-top: 30px;
+    padding: 13px 25px;
+    border: 1px solid #4dbdff;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #102a42;
+    transition: 0.3s ease;
 }
 
-.btn.primary {
-  background: #72c7ff;
-  color: #06111f;
-  border-color: #72c7ff;
+.btn:hover {
+    background: #4dbdff;
+    color: #06101f;
 }
 
-.hero-meta,
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 25px;
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-box {
+    margin-top: 40px;
+    padding: 35px;
+    background: #0b1b2b;
+    border: 1px solid #203b56;
+    border-radius: 20px;
 }
 
-.tag,
-.chip {
-  border: 1px solid #304861;
-  padding: 7px 11px;
-  border-radius: 20px;
-  color: #a9bdd1;
-  font-size: 13px;
+.contact-box a {
+    color: #61c4ff;
 }
 
-/* FOCUS */
-.focus-list {
-  margin-top: 22px;
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 50px 0;
+    border-top: 1px solid #13263c;
+    color: #8298af;
+    text-align: center;
 }
 
-.focus-item {
-  padding: 18px 0;
-  border-bottom: 1px solid #29415d;
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    nav .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 13px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 70px 0;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 12vw, 80px);
+        letter-spacing: -2px;
+    }
+
+    .hero-card {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .photo {
+        height: 500px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
 }
 
-.focus-item small {
-  display: block;
-  color: #72c7ff;
-  margin-bottom: 6px;
-}
 
-.focus-item strong {
-  font-size: 18px;
-}
+/* =========================
+   SMALL MOBILE
+========================= */
 
-/* RESPONSIVE */
-@media (max-width: 800px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 550px) {
 
-  .photo {
-    height: 420px;
-  }
+    .container {
+        width: 90%;
+    }
 
-  h1 {
-    font-size: 55px;
-  }
+    .hero {
+        padding: 50px 0;
+    }
+
+    .hero-label {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        line-height: 1;
+    }
+
+    .hero h2 {
+        font-size: 19px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-card {
+        padding: 15px;
+        border-radius: 20px;
+    }
+
+    .photo {
+        height: 430px;
+        border-radius: 18px;
+    }
+
+    .photo img {
+        transform: scale(1.16);
+        transform-origin: 50% 65%;
+    }
+
+    .photo:hover img {
+        transform: scale(1.20);
+    }
+
+    section {
+        padding: 75px 0;
+    }
+
+    section h2 {
+        font-size: 38px;
+    }
 }
